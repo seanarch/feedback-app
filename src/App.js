@@ -9,6 +9,7 @@ import Card from "./components/shared/Card"
 import FeedbackItem from "./components/FeedbackItem"
 import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
+import AboutIconLink from './components/AboutIconLink'
 import AboutPage from './pages/AboutPage'
 
 function App() {
@@ -26,8 +27,7 @@ function App() {
   }
   return (
     <Router>
-      <Header />
-      <div className="container">
+       <div className='container'>
         <Routes>
           <Route 
             exact 
@@ -37,14 +37,19 @@ function App() {
                 <FeedbackForm handleAdd={addFeedback} />
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
-                <AboutPage />  
+                
               </>
 
             }> 
           </Route>
+          <Route path='/about' element={<AboutPage />}  />
+          
+          
         </Routes>
+
         
-      </div>
+       <AboutIconLink />
+       </div>
     </Router>
   )
 }
